@@ -40,13 +40,17 @@ complete <- function(directory, id = 1:332) {
 	df <- na.omit(df)
 	
 	## Extract the desired IDs into a separate dataframe object
-	sub_df <- data.frame(Names = c("id", "nobs") )
+	sub_df <- data.frame()
 	for(j in 1:length(id)) {
-		idx = df["ID"] == id[j]
-		tmp_df <- df[idx,]
-		sub_df <- rbind(sub_df, c(id[j], nrow(tmp_df)))	
+		## Prepare our output data with id and number of casaes for each.
+		col_1 <- c(id[j])
+		col_2 <- c(length(which(df$ID == id[j])))
+		
+		new.row <- data.frame(col_1, col_2)
+		names(new.row) <- c("id", "nobs")
+        sub_df <- rbind(sub_df, new.row)	
 	}
 	
-	print(sub_df)
+	##print(sub_df)
 	return(sub_df)
 }
