@@ -47,11 +47,11 @@ corr <- function(directory, threshold = 0) {
 		
 		if ( nrow(tmp_df) >= threshold[1]) {
 			cr <- append(cr, cor( tmp_df$sulfate, tmp_df$nitrate) )
-	    } 
+		} 
 		
 		if(length(cr) == 0) {
 			cr <- integer()
-	    }
+		}
 	}
 	
 	return(cr)
