@@ -1,4 +1,4 @@
-# TODO: Add comment
+# R Script used for completing the quiz for week 1.
 # 
 # Author: tim
 ###############################################################################
